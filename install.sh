@@ -1,6 +1,8 @@
 #!/bin/sh
 
-BIN_DIR=$(pwd)
+if [ -z "$BIN_DIR" ]; then
+  BIN_DIR=$(pwd)
+fi
 
 THE_ARCH_BIN=''
 THIS_PROJECT_OWNER='dunglas'
