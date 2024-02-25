@@ -1,0 +1,57 @@
+#!/bin/sh
+
+BIN_DIR=$(pwd)
+
+THE_ARCH_BIN=''
+THIS_PROJECT_OWNER='dunglas'
+THIS_PROJECT_NAME='frankenphp'
+
+THISOS=$(uname -s)
+ARCH=$(uname -m)
+
+case $THISOS in
+   Linux*)
+      case $ARCH in
+        arm64)
+          THE_ARCH_BIN=""
+          ;;
+        aarch64)
+          THE_ARCH_BIN="$THIS_PROJECT_NAME-linux-aarch64"
+          ;;
+        armv6l)
+          THE_ARCH_BIN=""
+          ;;
+        armv7l)
+          THE_ARCH_BIN=""
+          ;;
+        *)
+          THE_ARCH_BIN="$THIS_PROJECT_NAME-linux-x86_64"
+          ;;
+      esac
+      ;;
+   Darwin*)
+      case $ARCH in
+        arm64)
+          THE_ARCH_BIN="$THIS_PROJECT_NAME-mac-arm64"
+          ;;
+        *)
+          THE_ARCH_BIN="$THIS_PROJECT_NAME-mac-x86_64"
+          ;;
+      esac
+      ;;
+   Windows|MINGW64_NT*)
+        THE_ARCH_BIN=""
+      ;;
+esac
+
+if [ -z "$THE_ARCH_BIN" ]; then
+   echo "This script is not supported on $THISOS and $ARCH"
+   exit 1
+fi
+
+curl -kL --progress-bar https://github.com/$THIS_PROJECT_OWNER/$THIS_PROJECT_NAME/releases/latest/download/$THE_ARCH_BIN -o $BIN_DIR/$THIS_PROJECT_NAME
+
+chmod +x $BIN_DIR/$THIS_PROJECT_NAME
+
+echo "Installed successfully to: $BIN_DIR/$THIS_PROJECT_NAME"
+
