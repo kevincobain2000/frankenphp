@@ -38,6 +38,7 @@ containing [PHP 8.3](https://www.php.net/releases/8.3/en.php) and most popular P
 
 ```sh
 curl -sLK https://raw.githubusercontent.com/dunglas/frankenphp/main/install.sh | sh
+mv frankenphp /usr/local/bin
 ```
 
 Or [Download FrankenPHP manually](https://github.com/dunglas/frankenphp/releases)
