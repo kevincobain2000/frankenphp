@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 if [ -z "$BIN_DIR" ]; then
   BIN_DIR=$(pwd)
 fi
