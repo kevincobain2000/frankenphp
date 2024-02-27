@@ -7,7 +7,7 @@ if [ -z "$BIN_DIR" ]; then
 fi
 
 THE_ARCH_BIN=""
-THIS_PROJECT_OWNER="dunglas
+THIS_PROJECT_OWNER="dunglas"
 THIS_PROJECT_NAME="frankenphp"
 
 THISOS=$(uname -s)
