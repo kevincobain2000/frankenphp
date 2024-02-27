@@ -8,7 +8,7 @@ fi
 
 THE_ARCH_BIN=""
 THIS_PROJECT_OWNER="dunglas"
-THIS_PROJECT_NAME="frankenphp"
+DEST=$BIN_DIR/frankenphp
 
 THISOS=$(uname -s)
 ARCH=$(uname -m)
@@ -53,9 +53,9 @@ if [ -z "$THE_ARCH_BIN" ]; then
    exit 1
 fi
 
-curl -kL --progress-bar https://github.com/$THIS_PROJECT_OWNER/$THIS_PROJECT_NAME/releases/latest/download/$THE_ARCH_BIN -o $BIN_DIR/$THIS_PROJECT_NAME
+curl -kL --progress-bar https://github.com/$THIS_PROJECT_OWNER/$THIS_PROJECT_NAME/releases/latest/download/$THE_ARCH_BIN -o "$DEST"
 
-chmod +x $BIN_DIR/$THIS_PROJECT_NAME
+chmod +x "$DEST"
 
-echo "Installed successfully to: $BIN_DIR/$THIS_PROJECT_NAME"
+echo "Installed successfully to: $DEST
 
